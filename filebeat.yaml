@@ -1,0 +1,26 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/*.log
+
+# Configure the output. Here, Elasticsearch is used as an example.
+output.elasticsearch:
+  hosts: ["localhost:9200"]
+
+# Optional: setup.template settings
+setup.template.settings:
+  index.number_of_shards: 1
+
+# Optional: setup Kibana component templates.
+# setup.kibana:
+
+# Optional: Enable logging to a specific file (not just stdout)
+# logging.files:
+#   path: /var/log/filebeat
+#   name: filebeat
+#   keepfiles: 7
+#   permissions: 0644
+
+# Optional: Enable logging level
+# logging.level: debug
